@@ -1,0 +1,49 @@
+.diceContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10%;
+  z-index: 2;
+}
+
+.diceResult {
+  position: absolute;
+  left: 56%;  /* Move more to the right (was 45%) */
+  top: 30%;
+  width: 10%;  /* Make smaller (was 15%) */
+  max-width: 100px;  /* Add max-width to limit size */
+  aspect-ratio: 1;
+  background: white;
+  border: 4px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: min(4vw, 2rem);
+  font-weight: bold;
+  opacity: 0;
+  z-index: -1;  /* Place behind the hand */
+  animation: dropDice 1s ease-in forwards;
+}
+
+.square {
+  border-radius: 10px;
+}
+
+.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes dropDice {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50vh);
+    opacity: 1;
+  }
+}

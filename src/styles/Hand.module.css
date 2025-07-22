@@ -1,0 +1,13 @@
+.handContainer {
+  position: absolute;
+  left: 0;
+  transform: translate(0, -50%);
+  z-index: 1;
+  top: 65%;
+}
+
+@media (max-width: 800px) {
+  .handContainer {
+    top: 60%;
+  }
+}
