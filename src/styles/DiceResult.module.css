@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   font-family: 'Comic Sans MS', cursive;
-  font-size: min(4vw, 2rem);
+  font-size: min(3.5vw, 1.75rem);  /* Slightly smaller font size */
   font-weight: bold;
   opacity: 0;
   z-index: -1;  /* Place behind the hand */
@@ -45,5 +45,13 @@
   100% {
     transform: translateY(50vh);
     opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .diceResult {
+    width: 12%;
+    max-width: 80px;
+    border-width: 3px;
   }
 }

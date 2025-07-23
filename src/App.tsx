@@ -32,31 +32,34 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gray-50 relative overflow-hidden flex flex-col">
       {/* Hand-drawn style title */}
-      <div className="text-center pt-12 mb-16">
+      <div className="text-center pt-8 sm:pt-12">
         <h1 className="text-6xl font-black text-black transform mb-4" style={{ fontFamily: 'Comic Sans MS, cursive' }}>
           ROLL ANYTHING
         </h1>
       </div>
 
       {/* Controls container */}
-      <div className="max-w-md mx-auto px-8" style={{ position: 'relative', zIndex: 2 }}>
+      <div 
+        className="max-w-md w-11/12 mx-auto px-4 sm:px-8 pb-32 sm:pb-40" 
+        style={{ zIndex: 2 }}
+      >
         {/* Dice selector - hand-drawn style */}
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <div className="relative">
-            <div className="border-4 border-black bg-white p-6 transform " style={{ borderRadius: '20px' }}>
-              <div className="text-2xl font-bold text-black mb-4 text-center transform">
+            <div className="border-4 border-black bg-white p-3 sm:p-6 transform" style={{ borderRadius: '20px' }}>
+              <div className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4 text-center transform">
                 [D{selectedDie}]
               </div>
-              <div className="text-lg font-bold text-black mb-2 transform ">
+              <div className="text-base sm:text-lg font-bold text-black mb-1 sm:mb-2 transform">
                 (ROLL)
               </div>
 
               <select
                 value={selectedDie}
                 onChange={(e) => setSelectedDie(Number(e.target.value))}
-                className="w-full p-3 border-3 border-black bg-white text-lg font-bold transform"
+                className="w-full p-2 sm:p-3 border-3 border-black bg-white text-base sm:text-lg font-bold transform"
                 style={{ fontFamily: 'Comic Sans MS, cursive' }}
               >
                 {diceTypes.map((die) => (
@@ -69,9 +72,9 @@ function App() {
               <button
                 onClick={rollDice}
                 disabled={isRolling}
-                className={`w-full mt-4 p-4 border-3 border-black font-black text-xl transform  transition-all ${
-                  isRolling
-                    ? 'bg-gray-300 cursor-not-allowed text-gray-600'
+                className={`w-full mt-2 sm:mt-4 p-3 sm:p-4 border-3 border-black font-black text-lg sm:text-xl transform transition-all ${
+                  isRolling 
+                    ? 'bg-gray-300 cursor-not-allowed text-gray-600' 
                     : 'bg-yellow-300 hover:bg-yellow-400 text-black hover:scale-105'
                 }`}
                 style={{ fontFamily: 'Comic Sans MS, cursive', borderRadius: '15px' }}
@@ -84,7 +87,13 @@ function App() {
       </div>
 
       {/* Hand animation container */}
-      <div className={styles.handContainer}>
+      <div 
+        className={styles.handContainer}
+        style={{ 
+          position: 'fixed',
+          top: '35vh'
+        }}
+      >
         {/* Dice Result - positioned behind hand */}
         {isRolling && rollResult !== null && (
           <div 
