@@ -32,10 +32,17 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden flex flex-col">
+    <div className="min-h-screen h-full relative overflow-auto flex flex-col" 
+      style={{ 
+        minWidth: '350px',
+        minHeight: '500px'
+      }}>
       {/* Hand-drawn style title */}
-      <div className="text-center pt-8 sm:pt-12">
-        <h1 className="text-6xl font-black text-black transform mb-4" style={{ fontFamily: 'Comic Sans MS, cursive' }}>
+      <div className="text-center pt-6 sm:pt-8 md:pt-12">
+        <h1 
+          className="text-4xl sm:text-5xl md:text-6xl font-black text-black transform mb-4" 
+          style={{ fontFamily: 'Comic Sans MS, cursive' }}
+        >
           ROLL ANYTHING
         </h1>
       </div>
@@ -91,7 +98,7 @@ function App() {
         className={styles.handContainer}
         style={{ 
           position: 'fixed',
-          top: '35vh'
+          // top: '40vh'
         }}
       >
         {/* Dice Result - positioned behind hand */}

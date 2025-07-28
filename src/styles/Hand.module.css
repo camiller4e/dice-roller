@@ -1,10 +1,59 @@
-.handContainer {
-  left: 0;
-  z-index: 1;
-}
-
-@media (max-width: 800px) {
-  .handContainer {
-    top: 35vh;  /* Move hand lower on mobile screens */
+/* Root container constraints */
+html, body {
+    min-width: 350px;
+    min-height: 500px;
+    height: 100%;
+    overflow-x: auto; /* Allow horizontal scroll if content exceeds min-width */
+    overflow-y: auto; /* Allow vertical scroll if content exceeds min-height */
   }
-}
+  
+  .handContainer {
+    position: absolute; /* Assuming you want absolute positioning */
+    left: 0;
+    z-index: 1;
+    min-width: 350px;
+  }
+  
+  /* Desktop and larger screens */
+  @media (min-width: 801px) {
+    .handContainer {
+      top: 40vh;
+    }
+  }
+  
+  /* Tablet and mobile screens */
+  @media (max-width: 800px) {
+    .handContainer {
+      top: 40vh;
+    }
+  }
+  
+  /* Medium height screens */
+  @media (max-height: 800px) and (min-height: 581px) {
+    .handContainer {
+      top: 55vh; /* Fixed typo: was "55vhvh" */
+    }
+  }
+  
+  /* Small height screens */
+  @media (max-height: 580px) and (min-height: 501px) {
+    .handContainer {
+      top: 65vh; /* Fixed typo: was "65vhvh" */
+    }
+  }
+  
+  /* Minimum height constraint - lock position */
+  @media (max-height: 500px) {
+    .handContainer {
+      top: 330px; /* Fixed position when screen is at minimum height */
+    }
+  }
+  
+  /* Additional constraint for minimum width */
+  @media (max-width: 350px) {
+    .handContainer {
+      /* Ensure container doesn't break at minimum width */
+      width: 350px;
+      left: 0;
+    }
+  }
