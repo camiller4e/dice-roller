@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './index.css';
 import closedFistImage from './assets/closed-fist.png';
 import openHandImage from './assets/open-hand.png';
 import styles from './styles/Hand.module.css';
@@ -32,30 +33,19 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen h-full relative overflow-auto flex flex-col" 
-      style={{ 
-        minWidth: '350px',
-        minHeight: '500px'
-      }}>
+    <div className="min-h-screen h-full relative overflow-auto flex flex-col app-container">
       {/* Hand-drawn style title */}
       <div className="text-center pt-6 sm:pt-8 md:pt-12">
-        <h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-black text-black transform mb-4" 
-          style={{ fontFamily: 'Comic Sans MS' }}
-        >
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black transform mb-4 title">
           ROLL ANYTHING
         </h1>
       </div>
 
       {/* Controls container */}
-      <div 
-        className="max-w-md w-11/12 mx-auto px-4 sm:px-8 pb-32 sm:pb-40" 
-        style={{ zIndex: 2 }}
-      >
-        {/* Dice selector - hand-drawn style */}
+      <div className="max-w-md w-11/12 mx-auto px-4 sm:px-8 pb-32 sm:pb-40" style={{ zIndex: 2 }}>
         <div className="mb-4 sm:mb-8">
           <div className="relative">
-            <div className="border-4 border-black bg-white p-3 sm:p-6 transform" style={{ borderRadius: '20px' }}>
+            <div className="border-4 border-black bg-white p-3 sm:p-6 transform control-box">
               <div className="text-xl sm:text-2xl font-bold text-black mb-2 sm:mb-4 text-center transform">
                 [D{selectedDie}]
               </div>
@@ -66,8 +56,7 @@ function App() {
               <select
                 value={selectedDie}
                 onChange={(e) => setSelectedDie(Number(e.target.value))}
-                className="w-full p-2 sm:p-3 border-3 border-black bg-white text-base sm:text-lg font-bold transform"
-                style={{ fontFamily: 'Comic Sans MS, cursive' }}
+                className="w-full p-2 sm:p-3 border-3 border-black bg-white text-base sm:text-lg font-bold transform select-input"
               >
                 {diceTypes.map((die) => (
                   <option key={die} value={die}>
@@ -79,12 +68,11 @@ function App() {
               <button
                 onClick={rollDice}
                 disabled={isRolling}
-                className={`w-full mt-2 sm:mt-4 p-3 sm:p-4 border-3 border-black font-black text-lg sm:text-xl transform transition-all ${
+                className={`w-full mt-2 sm:mt-4 p-3 sm:p-4 border-3 border-black font-black text-lg sm:text-xl transform transition-all roll-button ${
                   isRolling 
                     ? 'bg-gray-300 cursor-not-allowed text-gray-600' 
                     : 'bg-yellow-300 hover:bg-yellow-400 text-black hover:scale-105'
                 }`}
-                style={{ fontFamily: 'Comic Sans MS, cursive', borderRadius: '15px' }}
               >
                 {isRolling ? 'ROLLING...' : `ROLL D${selectedDie}!`}
               </button>
@@ -94,13 +82,7 @@ function App() {
       </div>
 
       {/* Hand animation container */}
-      <div 
-        className={styles.handContainer}
-        style={{ 
-          position: 'fixed',
-          // top: '40vh'
-        }}
-      >
+      <div className={styles.handContainer}>
         {/* Dice Result - positioned behind hand */}
         {isRolling && rollResult !== null && (
           <div 
@@ -116,13 +98,7 @@ function App() {
         <img
           src={isRolling ? openHandImage : closedFistImage}
           alt="Hand Animation"
-          style={{
-            width: '69vw',  
-            maxWidth: '800px', 
-            minWidth: '300px',
-            position: 'relative',  /* Create new stacking context */
-            zIndex: 1            /* Ensure hand stays above dice */
-          }}
+          className="hand-image"
         />
       </div>
     </div>

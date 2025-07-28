@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-container {
+  min-width: 350px;
+  min-height: 500px;
+}
+
+.title {
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.control-box {
+  border-radius: 20px;
+}
+
+.select-input {
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.roll-button {
+  font-family: 'Comic Sans MS', cursive;
+  border-radius: 15px;
+}
+
+.hand-image {
+  width: 69vw;
+  max-width: 800px;
+  min-width: 300px;
+  position: fixed;
+  z-index: 1;
+}
