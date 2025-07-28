@@ -41,7 +41,7 @@ function App() {
       <div className="text-center pt-6 sm:pt-8 md:pt-12">
         <h1 
           className="text-4xl sm:text-5xl md:text-6xl font-black text-black transform mb-4" 
-          style={{ fontFamily: 'Comic Sans MS, cursive' }}
+          style={{ fontFamily: 'Comic Sans MS' }}
         >
           ROLL ANYTHING
         </h1>
